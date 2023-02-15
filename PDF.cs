@@ -36,6 +36,18 @@ namespace standard_invoice_system
             gfx = XGraphics.FromPdfPage(page);
         }
 
+        private void SetCompanyInfo()
+        {
+            //TITLE OF INVOICE
+            gfx.DrawString(invoice.CompanyName, nameFont, XBrushes.Black, new XRect(20, 15, page.Width, page.Height), XStringFormat.TopLeft);
+
+
+            //COMPANY INFO
+            gfx.DrawString("Insert Street", streetFont, XBrushes.Black, new XRect(20, 45, page.Width, page.Height), XStringFormat.TopLeft);
+            gfx.DrawString("Insert City and Zip", streetFont, XBrushes.Black, new XRect(20, 60, page.Width, page.Height), XStringFormat.TopLeft);
+            gfx.DrawString(invoice.CompanyNumber, streetFont, XBrushes.Black, new XRect(20, 75, page.Width, page.Height), XStringFormat.TopLeft);
+        }
+
 
         public void GenerateInvoiceTable()
         {
@@ -71,17 +83,6 @@ namespace standard_invoice_system
 
         public void GeneratePDF()
         {
-
-            //TITLE OF INVOICE
-            gfx.DrawString(invoice.CompanyName, nameFont, XBrushes.Black, new XRect(20, 15, page.Width, page.Height), XStringFormat.TopLeft);
-
-
-            //COMPANY INFO
-            gfx.DrawString("Insert Street", streetFont, XBrushes.Black, new XRect(20, 45, page.Width, page.Height), XStringFormat.TopLeft);
-            gfx.DrawString("Insert City and Zip", streetFont, XBrushes.Black, new XRect(20, 60, page.Width, page.Height), XStringFormat.TopLeft);
-            gfx.DrawString(invoice.CompanyNumber, streetFont, XBrushes.Black, new XRect(20, 75, page.Width, page.Height), XStringFormat.TopLeft);
-
-
             //INVOICE INFO
             gfx.DrawString("FAKTURANUMMER", infoFont, XBrushes.Black, new XRect((page.Width / 2) - 196, -195, page.Width, page.Height), XStringFormat.Center);
             gfx.DrawString("FAKTURADATO", infoFont, XBrushes.Black, new XRect((page.Width / 2) - 205, -180, page.Width, page.Height), XStringFormat.Center);
@@ -96,7 +97,11 @@ namespace standard_invoice_system
 
             GenerateInvoiceTable();
 
+            SavePDF();
+        }
 
+        public void SavePDF()
+        {
             pdf.Save(@"..\..\..\Invoices\" + fileName + ".pdf");
         }
     }

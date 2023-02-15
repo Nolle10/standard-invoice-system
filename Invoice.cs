@@ -8,6 +8,7 @@ namespace standard_invoice_system
 {
     internal class Invoice
     {
+        private Company company = Company.Instance;
         private string companyName;
         private string companyAddress;
         private string companyNumber;
@@ -16,11 +17,11 @@ namespace standard_invoice_system
         private DateTime deliveryDate;
         private DateTime paymentDate;
 
-        public Invoice(string companyName, string companyAddress, string companyNumber, long invoiceNumber, DateTime invoiceDate, DateTime deliveryDate, DateTime paymentDate)
+        public Invoice(long invoiceNumber, DateTime invoiceDate, DateTime deliveryDate, DateTime paymentDate)
         {
-            this.companyName = companyName;
-            this.companyAddress = companyAddress;
-            this.companyNumber = companyNumber;
+            companyName = company.CompanyName;
+            companyAddress = company.CompanyAddress;
+            companyNumber = company.CompanyNumber;
             this.invoiceNumber = invoiceNumber;
             this.invoiceDate = invoiceDate;
             this.deliveryDate = deliveryDate;

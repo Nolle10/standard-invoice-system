@@ -5,7 +5,6 @@ This is a small object-oriented program, that enables buisness' to create auto g
 A small sample of how it should look.
 
 ![A auto-generated invoice](https://github.com/Nolle10/standard-invoice-system/blob/main/img/preview.JPG)
-![A auto-generated invoice](/../../../img/preview.jpg?raw=true)
 
 ### THIS IS A WORK IN PROGRESS
 
