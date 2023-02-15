@@ -83,6 +83,8 @@ namespace standard_invoice_system
 
         public void GeneratePDF()
         {
+            SetCompanyInfo();
+
             //INVOICE INFO
             gfx.DrawString("FAKTURANUMMER", infoFont, XBrushes.Black, new XRect((page.Width / 2) - 196, -195, page.Width, page.Height), XStringFormat.Center);
             gfx.DrawString("FAKTURADATO", infoFont, XBrushes.Black, new XRect((page.Width / 2) - 205, -180, page.Width, page.Height), XStringFormat.Center);

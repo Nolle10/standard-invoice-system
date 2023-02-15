@@ -30,7 +30,7 @@ namespace standard_invoice_system
                     if (instance == null) 
                     {
                         //TODO: Read from CompanyInfo.csv and insert into columns
-                        instance = new Company("Det Danske Firma A/S", "Danmarks Allé 43","CVR: " + "55345234");
+                        instance = new Company("Svendsen Invest A/S", "Søndergade 23 4500 Høje Taastrup","CVR: " + "123123123");
                     }
                     return instance;
                 }
